@@ -3,6 +3,23 @@
 Android MQTT client for Titanium using https://github.com/hivemq/hivemq-mqtt-client
 
 
+## Methods
+
+* createClient(server, port)
+* connect()
+* subscribe(topic)
+* publish(topic, payload)
+* disconnect()
+
+## Events
+
+* error
+* connected
+* subscribed
+* message (payload,topic)
+* published
+
+## Example
 ```js
 const mqtt = require("ti.mqtt");
 mqtt.addEventListener("error", e => {

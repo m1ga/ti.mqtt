@@ -120,23 +120,5 @@ public class TiMqttModule extends KrollModule {
     public void disconnect() {
         client.disconnect();
     }
-
-
-	/*
-
-	// Properties
-	@Kroll.getProperty
-	public String getExampleProp()
-	{
-		Log.d(LCAT, "get example property");
-		return "hello world";
-	}
-
-
-	@Kroll.setProperty
-	public void setExampleProp(String value) {
-		Log.d(LCAT, "set example property: " + value);
-	}
-*/
 }
 
