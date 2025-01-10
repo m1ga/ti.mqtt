@@ -61,7 +61,9 @@ public class TiMqttModule extends KrollModule {
     public void connect() {
         client.connect().whenComplete((mqtt5ConnAck, throwable) -> {
             if (throwable != null) {
-                fireEvent("error", new KrollDict());
+                KrollDict kdError = new KrollDict();
+                kdError.put("message", throwable.toString());
+                fireEvent("error", kdError);
             } else {
                 fireEvent("connected", new KrollDict());
             }
@@ -79,7 +81,9 @@ public class TiMqttModule extends KrollModule {
                 .send()
                 .whenComplete((mqtt5PublishResult, throwable) -> {
                     if (throwable != null) {
-                        fireEvent("error", new KrollDict());
+                        KrollDict kdError = new KrollDict();
+                        kdError.put("message", throwable.toString());
+                        fireEvent("error", kdError);
                     } else {
                         fireEvent("published", new KrollDict());
                     }
@@ -101,7 +105,9 @@ public class TiMqttModule extends KrollModule {
                 .send()
                 .whenComplete((mqtt5PublishResult, throwable) -> {
                     if (throwable != null) {
-                        fireEvent("error", new KrollDict());
+                        KrollDict kdError = new KrollDict();
+                        kdError.put("message", throwable.toString());
+                        fireEvent("error", kdError);
                     } else {
                         fireEvent("subscribed", new KrollDict());
                     }
@@ -121,4 +127,3 @@ public class TiMqttModule extends KrollModule {
         client.disconnect();
     }
 }
-
